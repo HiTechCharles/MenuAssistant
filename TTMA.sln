@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTMA", "TTMA\TTMA.csproj", "{791BAAAC-6865-4D63-AABD-55FD4D6DD798}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{791BAAAC-6865-4D63-AABD-55FD4D6DD798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791BAAAC-6865-4D63-AABD-55FD4D6DD798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791BAAAC-6865-4D63-AABD-55FD4D6DD798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791BAAAC-6865-4D63-AABD-55FD4D6DD798}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8586E789-E7C0-473E-8EEB-43F30530D601}
+	EndGlobalSection
+EndGlobal
