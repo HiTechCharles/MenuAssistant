@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TTMAMain));
             this.ReadBTN = new System.Windows.Forms.Button();
             this.PrintBTN = new System.Windows.Forms.Button();
             this.DatesLBL = new System.Windows.Forms.Label();
@@ -44,17 +45,19 @@
             this.FBreakfastTB = new System.Windows.Forms.TextBox();
             this.FLunchTB = new System.Windows.Forms.TextBox();
             this.ThursdayTB = new System.Windows.Forms.TextBox();
-            this.HelpBTN = new System.Windows.Forms.Button();
+            this.CopiesLBL = new System.Windows.Forms.Label();
+            this.CopiesNUD = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.CopiesNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // ReadBTN
             // 
             this.ReadBTN.AccessibleName = "Read Entire Menu";
             this.ReadBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReadBTN.Location = new System.Drawing.Point(511, 599);
+            this.ReadBTN.Location = new System.Drawing.Point(480, 642);
             this.ReadBTN.Name = "ReadBTN";
-            this.ReadBTN.Size = new System.Drawing.Size(175, 75);
-            this.ReadBTN.TabIndex = 15;
+            this.ReadBTN.Size = new System.Drawing.Size(175, 46);
+            this.ReadBTN.TabIndex = 16;
             this.ReadBTN.Text = "R&ead";
             this.ReadBTN.UseVisualStyleBackColor = true;
             this.ReadBTN.Click += new System.EventHandler(this.ReadBTN_Click);
@@ -62,10 +65,10 @@
             // PrintBTN
             // 
             this.PrintBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PrintBTN.Location = new System.Drawing.Point(706, 599);
+            this.PrintBTN.Location = new System.Drawing.Point(706, 642);
             this.PrintBTN.Name = "PrintBTN";
-            this.PrintBTN.Size = new System.Drawing.Size(175, 75);
-            this.PrintBTN.TabIndex = 16;
+            this.PrintBTN.Size = new System.Drawing.Size(175, 46);
+            this.PrintBTN.TabIndex = 17;
             this.PrintBTN.Text = "&Print";
             this.PrintBTN.UseVisualStyleBackColor = true;
             this.PrintBTN.Click += new System.EventHandler(this.PrintBTN_Click);
@@ -118,7 +121,7 @@
             // FBreakfastLBL
             // 
             this.FBreakfastLBL.AutoSize = true;
-            this.FBreakfastLBL.Location = new System.Drawing.Point(-2, 445);
+            this.FBreakfastLBL.Location = new System.Drawing.Point(-2, 449);
             this.FBreakfastLBL.Name = "FBreakfastLBL";
             this.FBreakfastLBL.Size = new System.Drawing.Size(288, 39);
             this.FBreakfastLBL.TabIndex = 10;
@@ -127,7 +130,7 @@
             // ThursdayLBL
             // 
             this.ThursdayLBL.AutoSize = true;
-            this.ThursdayLBL.Location = new System.Drawing.Point(122, 361);
+            this.ThursdayLBL.Location = new System.Drawing.Point(122, 365);
             this.ThursdayLBL.Name = "ThursdayLBL";
             this.ThursdayLBL.Size = new System.Drawing.Size(164, 39);
             this.ThursdayLBL.TabIndex = 8;
@@ -182,17 +185,36 @@
             this.ThursdayTB.Size = new System.Drawing.Size(565, 46);
             this.ThursdayTB.TabIndex = 9;
             // 
-            // HelpBTN
+            // CopiesLBL
             // 
-            this.HelpBTN.AccessibleName = "Help";
-            this.HelpBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.HelpBTN.Location = new System.Drawing.Point(316, 599);
-            this.HelpBTN.Name = "HelpBTN";
-            this.HelpBTN.Size = new System.Drawing.Size(175, 75);
-            this.HelpBTN.TabIndex = 14;
-            this.HelpBTN.Text = "&Help";
-            this.HelpBTN.UseVisualStyleBackColor = true;
-            this.HelpBTN.Click += new System.EventHandler(this.HelpBTN_Click);
+            this.CopiesLBL.AutoSize = true;
+            this.CopiesLBL.Location = new System.Drawing.Point(87, 649);
+            this.CopiesLBL.Name = "CopiesLBL";
+            this.CopiesLBL.Size = new System.Drawing.Size(199, 39);
+            this.CopiesLBL.TabIndex = 14;
+            this.CopiesLBL.Text = "# of &Copies";
+            // 
+            // CopiesNUD
+            // 
+            this.CopiesNUD.Location = new System.Drawing.Point(316, 642);
+            this.CopiesNUD.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.CopiesNUD.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CopiesNUD.Name = "CopiesNUD";
+            this.CopiesNUD.Size = new System.Drawing.Size(120, 46);
+            this.CopiesNUD.TabIndex = 15;
+            this.CopiesNUD.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // TTMAMain
             // 
@@ -202,7 +224,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(899, 698);
-            this.Controls.Add(this.HelpBTN);
+            this.Controls.Add(this.CopiesNUD);
+            this.Controls.Add(this.CopiesLBL);
             this.Controls.Add(this.ThursdayTB);
             this.Controls.Add(this.FBreakfastTB);
             this.Controls.Add(this.FLunchTB);
@@ -221,10 +244,12 @@
             this.Controls.Add(this.ReadBTN);
             this.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.MaximizeBox = false;
             this.Name = "TTMAMain";
             this.Text = "Totally Tiffany\'s Menu Assistant";
+            ((System.ComponentModel.ISupportInitialize)(this.CopiesNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +273,8 @@
         private System.Windows.Forms.TextBox FBreakfastTB;
         private System.Windows.Forms.TextBox FLunchTB;
         private System.Windows.Forms.TextBox ThursdayTB;
-        private System.Windows.Forms.Button HelpBTN;
+        private System.Windows.Forms.Label CopiesLBL;
+        private System.Windows.Forms.NumericUpDown CopiesNUD;
     }
 }
 

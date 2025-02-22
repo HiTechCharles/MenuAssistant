@@ -79,7 +79,7 @@ namespace TTMA
             }
 
             //speak text saving menu then printing file
-            synth.Speak("Saving the menu, and printing 4 copies.");
+            synth.Speak("Saving the menu, and printing " + CopiesNUD.Value.ToString() + " copies.");
 
             //open a file in OneDrive\Documents\ttma.txt
             System.IO.StreamWriter MenuFile = new System.IO.StreamWriter(Environment.GetEnvironmentVariable("onedriveconsumer") + "\\documents\\TTMA.txt");
@@ -95,7 +95,7 @@ namespace TTMA
             MenuFile.Close();  //close file
                                //print 4 copies of the file that was jest made
 
-            for (int p = 0; p < 4; p++)
+            for (int p = 0; p < CopiesNUD.Value; p++)
             {
                 System.Diagnostics.Process.Start("notepad", "/p " + Environment.GetEnvironmentVariable("onedriveconsumer") + "\\documents\\TTMA.txt");
             }
