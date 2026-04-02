@@ -54,9 +54,10 @@
             // 
             this.ReadBTN.AccessibleName = "Read Entire Menu";
             this.ReadBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReadBTN.Location = new System.Drawing.Point(480, 642);
+            this.ReadBTN.Location = new System.Drawing.Point(360, 477);
+            this.ReadBTN.Margin = new System.Windows.Forms.Padding(2);
             this.ReadBTN.Name = "ReadBTN";
-            this.ReadBTN.Size = new System.Drawing.Size(175, 46);
+            this.ReadBTN.Size = new System.Drawing.Size(131, 34);
             this.ReadBTN.TabIndex = 16;
             this.ReadBTN.Text = "R&ead";
             this.ReadBTN.UseVisualStyleBackColor = true;
@@ -65,9 +66,10 @@
             // PrintBTN
             // 
             this.PrintBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PrintBTN.Location = new System.Drawing.Point(706, 642);
+            this.PrintBTN.Location = new System.Drawing.Point(530, 477);
+            this.PrintBTN.Margin = new System.Windows.Forms.Padding(2);
             this.PrintBTN.Name = "PrintBTN";
-            this.PrintBTN.Size = new System.Drawing.Size(175, 46);
+            this.PrintBTN.Size = new System.Drawing.Size(131, 34);
             this.PrintBTN.TabIndex = 17;
             this.PrintBTN.Text = "&Print";
             this.PrintBTN.UseVisualStyleBackColor = true;
@@ -76,127 +78,143 @@
             // DatesLBL
             // 
             this.DatesLBL.AutoSize = true;
-            this.DatesLBL.Location = new System.Drawing.Point(178, 29);
+            this.DatesLBL.Location = new System.Drawing.Point(134, 22);
+            this.DatesLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DatesLBL.Name = "DatesLBL";
-            this.DatesLBL.Size = new System.Drawing.Size(108, 39);
+            this.DatesLBL.Size = new System.Drawing.Size(81, 29);
             this.DatesLBL.TabIndex = 0;
             this.DatesLBL.Text = "&Dates";
             // 
             // MondayLBL
             // 
             this.MondayLBL.AutoSize = true;
-            this.MondayLBL.Location = new System.Drawing.Point(143, 113);
+            this.MondayLBL.Location = new System.Drawing.Point(107, 84);
+            this.MondayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MondayLBL.Name = "MondayLBL";
-            this.MondayLBL.Size = new System.Drawing.Size(143, 39);
+            this.MondayLBL.Size = new System.Drawing.Size(107, 29);
             this.MondayLBL.TabIndex = 2;
             this.MondayLBL.Text = "&Monday";
             // 
             // TuesdayLBL
             // 
             this.TuesdayLBL.AutoSize = true;
-            this.TuesdayLBL.Location = new System.Drawing.Point(137, 197);
+            this.TuesdayLBL.Location = new System.Drawing.Point(103, 146);
+            this.TuesdayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TuesdayLBL.Name = "TuesdayLBL";
-            this.TuesdayLBL.Size = new System.Drawing.Size(149, 39);
+            this.TuesdayLBL.Size = new System.Drawing.Size(112, 29);
             this.TuesdayLBL.TabIndex = 4;
             this.TuesdayLBL.Text = "&Tuesday";
             // 
             // WednesdayLBL
             // 
             this.WednesdayLBL.AutoSize = true;
-            this.WednesdayLBL.Location = new System.Drawing.Point(85, 281);
+            this.WednesdayLBL.Location = new System.Drawing.Point(64, 209);
+            this.WednesdayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.WednesdayLBL.Name = "WednesdayLBL";
-            this.WednesdayLBL.Size = new System.Drawing.Size(201, 39);
+            this.WednesdayLBL.Size = new System.Drawing.Size(151, 29);
             this.WednesdayLBL.TabIndex = 6;
             this.WednesdayLBL.Text = "&Wednesday";
             // 
             // FLunchLBL
             // 
             this.FLunchLBL.AutoSize = true;
-            this.FLunchLBL.Location = new System.Drawing.Point(65, 533);
+            this.FLunchLBL.Location = new System.Drawing.Point(49, 396);
+            this.FLunchLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FLunchLBL.Name = "FLunchLBL";
-            this.FLunchLBL.Size = new System.Drawing.Size(221, 39);
+            this.FLunchLBL.Size = new System.Drawing.Size(166, 29);
             this.FLunchLBL.TabIndex = 12;
             this.FLunchLBL.Text = "Friday &Lunch";
             // 
             // FBreakfastLBL
             // 
             this.FBreakfastLBL.AutoSize = true;
-            this.FBreakfastLBL.Location = new System.Drawing.Point(-2, 449);
+            this.FBreakfastLBL.Location = new System.Drawing.Point(-2, 334);
+            this.FBreakfastLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FBreakfastLBL.Name = "FBreakfastLBL";
-            this.FBreakfastLBL.Size = new System.Drawing.Size(288, 39);
+            this.FBreakfastLBL.Size = new System.Drawing.Size(214, 29);
             this.FBreakfastLBL.TabIndex = 10;
             this.FBreakfastLBL.Text = "Friday  &Breakfast";
             // 
             // ThursdayLBL
             // 
             this.ThursdayLBL.AutoSize = true;
-            this.ThursdayLBL.Location = new System.Drawing.Point(122, 365);
+            this.ThursdayLBL.Location = new System.Drawing.Point(92, 271);
+            this.ThursdayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ThursdayLBL.Name = "ThursdayLBL";
-            this.ThursdayLBL.Size = new System.Drawing.Size(164, 39);
+            this.ThursdayLBL.Size = new System.Drawing.Size(123, 29);
             this.ThursdayLBL.TabIndex = 8;
             this.ThursdayLBL.Text = "Thu&rsday";
             // 
             // DatesTB
             // 
-            this.DatesTB.Location = new System.Drawing.Point(316, 22);
+            this.DatesTB.Location = new System.Drawing.Point(237, 16);
+            this.DatesTB.Margin = new System.Windows.Forms.Padding(2);
             this.DatesTB.Name = "DatesTB";
-            this.DatesTB.Size = new System.Drawing.Size(565, 46);
+            this.DatesTB.Size = new System.Drawing.Size(425, 36);
             this.DatesTB.TabIndex = 1;
             // 
             // MondayTB
             // 
-            this.MondayTB.Location = new System.Drawing.Point(316, 106);
+            this.MondayTB.Location = new System.Drawing.Point(237, 79);
+            this.MondayTB.Margin = new System.Windows.Forms.Padding(2);
             this.MondayTB.Name = "MondayTB";
-            this.MondayTB.Size = new System.Drawing.Size(565, 46);
+            this.MondayTB.Size = new System.Drawing.Size(425, 36);
             this.MondayTB.TabIndex = 3;
             // 
             // WednesdayTB
             // 
-            this.WednesdayTB.Location = new System.Drawing.Point(316, 274);
+            this.WednesdayTB.Location = new System.Drawing.Point(237, 204);
+            this.WednesdayTB.Margin = new System.Windows.Forms.Padding(2);
             this.WednesdayTB.Name = "WednesdayTB";
-            this.WednesdayTB.Size = new System.Drawing.Size(565, 46);
+            this.WednesdayTB.Size = new System.Drawing.Size(425, 36);
             this.WednesdayTB.TabIndex = 7;
             // 
             // TuesdayTB
             // 
-            this.TuesdayTB.Location = new System.Drawing.Point(316, 190);
+            this.TuesdayTB.Location = new System.Drawing.Point(237, 141);
+            this.TuesdayTB.Margin = new System.Windows.Forms.Padding(2);
             this.TuesdayTB.Name = "TuesdayTB";
-            this.TuesdayTB.Size = new System.Drawing.Size(565, 46);
+            this.TuesdayTB.Size = new System.Drawing.Size(425, 36);
             this.TuesdayTB.TabIndex = 5;
             // 
             // FBreakfastTB
             // 
-            this.FBreakfastTB.Location = new System.Drawing.Point(316, 442);
+            this.FBreakfastTB.Location = new System.Drawing.Point(237, 329);
+            this.FBreakfastTB.Margin = new System.Windows.Forms.Padding(2);
             this.FBreakfastTB.Name = "FBreakfastTB";
-            this.FBreakfastTB.Size = new System.Drawing.Size(565, 46);
+            this.FBreakfastTB.Size = new System.Drawing.Size(425, 36);
             this.FBreakfastTB.TabIndex = 11;
             // 
             // FLunchTB
             // 
-            this.FLunchTB.Location = new System.Drawing.Point(316, 526);
+            this.FLunchTB.Location = new System.Drawing.Point(237, 391);
+            this.FLunchTB.Margin = new System.Windows.Forms.Padding(2);
             this.FLunchTB.Name = "FLunchTB";
-            this.FLunchTB.Size = new System.Drawing.Size(565, 46);
+            this.FLunchTB.Size = new System.Drawing.Size(425, 36);
             this.FLunchTB.TabIndex = 13;
             // 
             // ThursdayTB
             // 
-            this.ThursdayTB.Location = new System.Drawing.Point(316, 358);
+            this.ThursdayTB.Location = new System.Drawing.Point(237, 266);
+            this.ThursdayTB.Margin = new System.Windows.Forms.Padding(2);
             this.ThursdayTB.Name = "ThursdayTB";
-            this.ThursdayTB.Size = new System.Drawing.Size(565, 46);
+            this.ThursdayTB.Size = new System.Drawing.Size(425, 36);
             this.ThursdayTB.TabIndex = 9;
             // 
             // CopiesLBL
             // 
             this.CopiesLBL.AutoSize = true;
-            this.CopiesLBL.Location = new System.Drawing.Point(87, 649);
+            this.CopiesLBL.Location = new System.Drawing.Point(65, 483);
+            this.CopiesLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CopiesLBL.Name = "CopiesLBL";
-            this.CopiesLBL.Size = new System.Drawing.Size(199, 39);
+            this.CopiesLBL.Size = new System.Drawing.Size(150, 29);
             this.CopiesLBL.TabIndex = 14;
             this.CopiesLBL.Text = "# of &Copies";
             // 
             // CopiesNUD
             // 
-            this.CopiesNUD.Location = new System.Drawing.Point(316, 642);
+            this.CopiesNUD.Location = new System.Drawing.Point(237, 477);
+            this.CopiesNUD.Margin = new System.Windows.Forms.Padding(2);
             this.CopiesNUD.Maximum = new decimal(new int[] {
             6,
             0,
@@ -208,7 +226,7 @@
             0,
             0});
             this.CopiesNUD.Name = "CopiesNUD";
-            this.CopiesNUD.Size = new System.Drawing.Size(120, 46);
+            this.CopiesNUD.Size = new System.Drawing.Size(90, 36);
             this.CopiesNUD.TabIndex = 15;
             this.CopiesNUD.Value = new decimal(new int[] {
             5,
@@ -220,10 +238,10 @@
             // 
             this.AccessibleDescription = "";
             this.AccessibleName = "Totally Tiffany\'s Menu Assistant";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 39F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(899, 698);
+            this.ClientSize = new System.Drawing.Size(674, 519);
             this.Controls.Add(this.CopiesNUD);
             this.Controls.Add(this.CopiesLBL);
             this.Controls.Add(this.ThursdayTB);
@@ -242,12 +260,13 @@
             this.Controls.Add(this.DatesLBL);
             this.Controls.Add(this.PrintBTN);
             this.Controls.Add(this.ReadBTN);
-            this.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.MaximizeBox = false;
             this.Name = "TTMAMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Totally Tiffany\'s Menu Assistant";
             ((System.ComponentModel.ISupportInitialize)(this.CopiesNUD)).EndInit();
             this.ResumeLayout(false);

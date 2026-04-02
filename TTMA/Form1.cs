@@ -1,104 +1,251 @@
 ﻿using System;
-using System.Windows.Forms;  //windows forms
-using System.Speech.Synthesis;  //for speech synthesis
+using System.IO;
+using System.Speech.Synthesis;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Printing;
 
 namespace TTMA
 {
     public partial class TTMAMain : Form
     {
-        public static string[] Menu = new string[8];  //stores lines from 7 textboxes
+        #region Constants
+        private const int SPEECH_RATE = 3;
+        private const int SPEECH_VOLUME = 100;
+        private const float FONT_SIZE = 16f;
+        #endregion
+
+        #region Variables
+        private string[] _menu;
+        private readonly SpeechSynthesizer _synth = new SpeechSynthesizer();
+
+        // printing fields
+        private PrintDocument _printDoc;
+        private string[] _menuToPrint;
+        private int _currentPrintLine;
+        #endregion
 
         public TTMAMain()
         {
-            InitializeComponent();  
+            InitializeComponent();
+
+            // Show month and day only (no year) for the dates range
+            DateTime nextMonday = GetNextMonday(DateTime.Now);
+            DatesTB.Text = nextMonday.ToString("M") + " to " + nextMonday.AddDays(4).ToString("M");
+
+            _synth.Rate = SPEECH_RATE;
+            _synth.Volume = SPEECH_VOLUME;
+
+            // initialize PrintDocument
+            _printDoc = new PrintDocument();
+            _printDoc.PrintPage += PrintDoc_PrintPage;
         }
 
-        bool GatherText()  //put contents of textboxes in Menu array
+        /// <summary>
+        /// Gets the next Monday from the given date. If the date is already Monday, returns the following Monday.
+        /// </summary>
+        public DateTime GetNextMonday(DateTime date)
         {
-            Menu[0] = "Totally Tiffany's Cafe";  //static business name
-            Menu[1] = DatesTB.Text; 
-            Menu[2] = "Monday - " + MondayTB.Text;
-            Menu[3] = "Tuesday - " + TuesdayTB.Text;
-            Menu[4] = "Wednesday - " + WednesdayTB.Text;
-            Menu[5] = "Thursday - " + ThursdayTB.Text;
-            Menu[6] = "Friday Breakfast - " + FBreakfastTB.Text;
-            Menu[7] = "Friday Lunch - " + FLunchTB.Text;
+            int daysUntilMonday = ((int)DayOfWeek.Monday - (int)date.DayOfWeek + 7) % 7;
 
-            //add up total length of all textboxes
-            int TotalTextLength = DatesTB.Text.Length;
-            TotalTextLength += MondayTB.Text.Length;
-            TotalTextLength += TuesdayTB.Text.Length;
-            TotalTextLength += WednesdayTB.Text.Length;
-            TotalTextLength += ThursdayTB.Text.Length;
-            TotalTextLength += FBreakfastTB.Text.Length;
-            TotalTextLength += FLunchTB.Text.Length;
+            // If today is Monday, daysUntilMonday will be 0, so add 7 to get next Monday
+            if (daysUntilMonday == 0)
+                daysUntilMonday = 7;
 
-            if (TotalTextLength > 0)  //if all boxes not empty 
-                return true;  //return true
-            else
-                return false; //return false
-
+            return date.AddDays(daysUntilMonday);
         }
 
-        private void ReadBTN_Click(object sender, EventArgs e)  //Read button speaks entire menu
+        /// <summary>
+        /// Builds the menu array from current textbox values.
+        /// </summary>
+        private string[] BuildMenu()
         {
-            SpeechSynthesizer synth = new SpeechSynthesizer();  //adds speech ability to this function
-            //if no text in textboxes, don't speak empty strings
-            if ( GatherText() == false )   //reset menu array with current textbox contents
+            var menu = new string[8];
+            menu[0] = "Totally Tiffany's Cafe";
+            menu[1] = DatesTB.Text;
+            menu[2] = "Monday - " + MondayTB.Text;
+            menu[3] = "Tuesday - " + TuesdayTB.Text;
+            menu[4] = "Wednesday - " + WednesdayTB.Text;
+            menu[5] = "Thursday - " + ThursdayTB.Text;
+            menu[6] = "Friday Breakfast - " + FBreakfastTB.Text;
+            menu[7] = "Friday Lunch - " + FLunchTB.Text;
+            return menu;
+        }
+
+        /// <summary>
+        /// Returns true if any user-editable textbox contains non-whitespace text.
+        /// </summary>
+        private bool HasAnyMenuText()
+        {
+            return !string.IsNullOrWhiteSpace(MondayTB.Text)
+                || !string.IsNullOrWhiteSpace(TuesdayTB.Text)
+                || !string.IsNullOrWhiteSpace(WednesdayTB.Text)
+                || !string.IsNullOrWhiteSpace(ThursdayTB.Text)
+                || !string.IsNullOrWhiteSpace(FBreakfastTB.Text)
+                || !string.IsNullOrWhiteSpace(FLunchTB.Text);
+        }
+
+        private void ReadBTN_Click(object sender, EventArgs e)
+        {
+            if (!HasAnyMenuText())
             {
-                synth.Speak("All menu sections are empty, nothing to speak.");  //alert user
-                return;  //exit function
+                _synth.SpeakAsync("All menu sections are empty, nothing to speak.");
+                return;
             }
 
-            for (int i = 0; i < Menu.Length; i++)  //loop through elements
+            _menu = BuildMenu();
+            _synth.SpeakAsyncCancelAll();
+
+            // Queue each line to be spoken
+            for (int i = 0; i < _menu.Length; i++)
             {
-                synth.Speak(Menu[i]);  //speak contents of element
+                if (!string.IsNullOrWhiteSpace(_menu[i]))
+                    _synth.SpeakAsync(_menu[i] + ".");
             }
         }
 
-        private void HelpBTN_Click(object sender, EventArgs e)  //reads help text instead of dialog box
+        private void HelpBTN_Click(object sender, EventArgs e)
         {
-            SpeechSynthesizer synth = new SpeechSynthesizer();  //make the computer chatty
-
-            synth.Speak("Use the following keyboard keys for Totally Tiffany's Menu Assistant:");
-            synth.Speak("Type in what you are serving for each day of the week.");
-            synth.Speak("Up Arrow - Reads the current line.");
-            synth.Speak("TAB - switches between sections.");
-            synth.Speak("Read Button - Speaks the entire menu out loud.");
-            synth.Speak("Print Button - Saves everything to a file, then prints it.)");
+            _synth.SpeakAsyncCancelAll();
+            _synth.SpeakAsync("Use the following keyboard keys for Totally Tiffany's Menu Assistant.");
+            _synth.SpeakAsync("Type in what you are serving for each day of the week.");
+            _synth.SpeakAsync("Up Arrow - Reads the current line. TAB switches between sections.");
+            _synth.SpeakAsync("Read Button - Speaks the entire menu out loud. Print Button - Saves and prints.");
         }
 
         private void PrintBTN_Click(object sender, EventArgs e)
         {
-            SpeechSynthesizer synth = new SpeechSynthesizer();  //add speech capability
-
-            if (GatherText() == false)   //reset menu array with current textbox contents
+            if (!HasAnyMenuText())
             {
-                synth.Speak("All menu sections are empty, nothing to print.");  //alert user
-                return;  //exit function
+                _synth.Speak("All menu sections are empty, nothing to print.");
+                return;
             }
 
-            //speak text saving menu then printing file
-            synth.Speak("Saving the menu, and printing " + CopiesNUD.Value.ToString() + " copies.");
+            _menu = BuildMenu();
+            int copies = (int)CopiesNUD.Value;
+            string copiesText = copies == 1 ? "copy" : "copies";
+            _synth.SpeakAsync($"Saving the menu, and printing {copies} {copiesText}.");
 
-            //open a file in OneDrive\Documents\ttma.txt
-            System.IO.StreamWriter MenuFile = new System.IO.StreamWriter(Environment.GetEnvironmentVariable("onedriveconsumer") + "\\documents\\TTMA.txt");
-            GatherText();  //update menu array
-            MenuFile.WriteLine(Menu[0]);  //business name
+            // Save to file
+            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = Path.Combine(documents, "TTMA.txt");
 
-            for (int i = 1; i < Menu.Length; i++)  //for each element, save to file with blank line after
+            try
             {
-                MenuFile.WriteLine(Menu[i]);
-                MenuFile.WriteLine();
+                using (var writer = new StreamWriter(filePath, false))
+                {
+                    writer.WriteLine(_menu[0]);
+                    for (int i = 1; i < _menu.Length; i++)
+                    {
+                        writer.WriteLine(_menu[i]);
+                        writer.WriteLine();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = "Failed to save menu: " + ex.Message;
+                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _synth.SpeakAsync("Failed to save menu.");
+                return;
             }
 
-            MenuFile.Close();  //close file
-                               //print 4 copies of the file that was jest made
+            // Prepare for printing via PrintDocument
+            _menuToPrint = _menu;
+            _currentPrintLine = 0;
 
-            for (int p = 0; p < CopiesNUD.Value; p++)
+            try
             {
-                System.Diagnostics.Process.Start("notepad", "/p " + Environment.GetEnvironmentVariable("onedriveconsumer") + "\\documents\\TTMA.txt");
+                // Apply the number of copies requested
+                _printDoc.PrinterSettings.Copies = (short)copies;
+                _printDoc.Print();
+            }
+            catch (Exception exPrint)
+            {
+                string errorMsg = "Printing failed: " + exPrint.Message;
+                MessageBox.Show(errorMsg, "Print error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _synth.SpeakAsync("Printing failed.");
             }
         }
-    }  //end class
-}  //end namespace
+
+        private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            var g = e.Graphics;
+
+            // Use Tahoma font with proper disposal
+            using (var font = new Font("Tahoma", FONT_SIZE, FontStyle.Bold))
+            {
+                var brush = Brushes.Black;
+
+                // Start at the top-left margin
+                float x = e.MarginBounds.Left;
+                float y = e.MarginBounds.Top;
+                float maxWidth = e.MarginBounds.Width;
+
+                // Measure a single blank line height to insert between sections
+                float blankLineHeight = g.MeasureString(" ", font, (int)maxWidth).Height;
+
+                // Print until we run out of space or lines
+                while (_currentPrintLine < _menuToPrint.Length)
+                {
+                    string line = _menuToPrint[_currentPrintLine];
+
+                    if (string.IsNullOrEmpty(line))
+                    {
+                        // Add blank line spacing
+                        y += blankLineHeight;
+                        _currentPrintLine++;
+                        continue;
+                    }
+
+                    // Measure string height when wrapped to the page width
+                    SizeF sz = g.MeasureString(line, font, (int)maxWidth);
+
+                    // Check if there's enough space for this line plus the extra blank line
+                    if (y + sz.Height + blankLineHeight > e.MarginBounds.Bottom)
+                    {
+                        // Not enough space; request another page
+                        break;
+                    }
+
+                    var layout = new RectangleF(x, y, maxWidth, sz.Height);
+                    g.DrawString(line, font, brush, layout);
+
+                    // Advance by the string height and add one blank line between sections
+                    y += sz.Height + blankLineHeight;
+                    _currentPrintLine++;
+                }
+            }
+
+            // Determine if more pages are required
+            if (_currentPrintLine < _menuToPrint.Length)
+            {
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+                // Reset for next print job
+                _currentPrintLine = 0;
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            try
+            {
+                _synth.SpeakAsyncCancelAll();
+                _synth.Dispose();
+            }
+            catch { /* swallow errors during closing */ }
+
+            try
+            {
+                _printDoc?.Dispose();
+            }
+            catch { /* swallow errors during closing */ }
+        }
+    }
+}
