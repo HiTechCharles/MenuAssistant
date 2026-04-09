@@ -54,7 +54,7 @@
             // 
             this.ReadBTN.AccessibleName = "Read Entire Menu";
             this.ReadBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReadBTN.Location = new System.Drawing.Point(360, 477);
+            this.ReadBTN.Location = new System.Drawing.Point(361, 473);
             this.ReadBTN.Margin = new System.Windows.Forms.Padding(2);
             this.ReadBTN.Name = "ReadBTN";
             this.ReadBTN.Size = new System.Drawing.Size(131, 34);
@@ -66,7 +66,7 @@
             // PrintBTN
             // 
             this.PrintBTN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PrintBTN.Location = new System.Drawing.Point(530, 477);
+            this.PrintBTN.Location = new System.Drawing.Point(531, 473);
             this.PrintBTN.Margin = new System.Windows.Forms.Padding(2);
             this.PrintBTN.Name = "PrintBTN";
             this.PrintBTN.Size = new System.Drawing.Size(131, 34);
@@ -88,7 +88,7 @@
             // MondayLBL
             // 
             this.MondayLBL.AutoSize = true;
-            this.MondayLBL.Location = new System.Drawing.Point(107, 84);
+            this.MondayLBL.Location = new System.Drawing.Point(107, 82);
             this.MondayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MondayLBL.Name = "MondayLBL";
             this.MondayLBL.Size = new System.Drawing.Size(107, 29);
@@ -98,7 +98,7 @@
             // TuesdayLBL
             // 
             this.TuesdayLBL.AutoSize = true;
-            this.TuesdayLBL.Location = new System.Drawing.Point(103, 146);
+            this.TuesdayLBL.Location = new System.Drawing.Point(103, 144);
             this.TuesdayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TuesdayLBL.Name = "TuesdayLBL";
             this.TuesdayLBL.Size = new System.Drawing.Size(112, 29);
@@ -108,7 +108,7 @@
             // WednesdayLBL
             // 
             this.WednesdayLBL.AutoSize = true;
-            this.WednesdayLBL.Location = new System.Drawing.Point(64, 209);
+            this.WednesdayLBL.Location = new System.Drawing.Point(64, 207);
             this.WednesdayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.WednesdayLBL.Name = "WednesdayLBL";
             this.WednesdayLBL.Size = new System.Drawing.Size(151, 29);
@@ -118,7 +118,7 @@
             // FLunchLBL
             // 
             this.FLunchLBL.AutoSize = true;
-            this.FLunchLBL.Location = new System.Drawing.Point(49, 396);
+            this.FLunchLBL.Location = new System.Drawing.Point(49, 394);
             this.FLunchLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FLunchLBL.Name = "FLunchLBL";
             this.FLunchLBL.Size = new System.Drawing.Size(166, 29);
@@ -128,7 +128,7 @@
             // FBreakfastLBL
             // 
             this.FBreakfastLBL.AutoSize = true;
-            this.FBreakfastLBL.Location = new System.Drawing.Point(-2, 334);
+            this.FBreakfastLBL.Location = new System.Drawing.Point(-2, 332);
             this.FBreakfastLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FBreakfastLBL.Name = "FBreakfastLBL";
             this.FBreakfastLBL.Size = new System.Drawing.Size(214, 29);
@@ -138,7 +138,7 @@
             // ThursdayLBL
             // 
             this.ThursdayLBL.AutoSize = true;
-            this.ThursdayLBL.Location = new System.Drawing.Point(92, 271);
+            this.ThursdayLBL.Location = new System.Drawing.Point(92, 269);
             this.ThursdayLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ThursdayLBL.Name = "ThursdayLBL";
             this.ThursdayLBL.Size = new System.Drawing.Size(123, 29);
@@ -147,7 +147,7 @@
             // 
             // DatesTB
             // 
-            this.DatesTB.Location = new System.Drawing.Point(237, 16);
+            this.DatesTB.Location = new System.Drawing.Point(237, 14);
             this.DatesTB.Margin = new System.Windows.Forms.Padding(2);
             this.DatesTB.Name = "DatesTB";
             this.DatesTB.Size = new System.Drawing.Size(425, 36);
@@ -204,7 +204,7 @@
             // CopiesLBL
             // 
             this.CopiesLBL.AutoSize = true;
-            this.CopiesLBL.Location = new System.Drawing.Point(65, 483);
+            this.CopiesLBL.Location = new System.Drawing.Point(65, 481);
             this.CopiesLBL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CopiesLBL.Name = "CopiesLBL";
             this.CopiesLBL.Size = new System.Drawing.Size(150, 29);
@@ -213,7 +213,7 @@
             // 
             // CopiesNUD
             // 
-            this.CopiesNUD.Location = new System.Drawing.Point(237, 477);
+            this.CopiesNUD.Location = new System.Drawing.Point(237, 474);
             this.CopiesNUD.Margin = new System.Windows.Forms.Padding(2);
             this.CopiesNUD.Maximum = new decimal(new int[] {
             6,
